@@ -1,0 +1,106 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":null,"items":[{"name":"csharp","languageName":"C#","aliases":["c#","cs"]},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"html","languageName":"HTML"},{"name":"sql","languageName":"SQL"},{"name":"kql","languageName":"KQL"},{"name":"mermaid","languageName":"Mermaid"},{"name":"httpRequest","languageName":"http"},{"name":"value"}]}}
+
+#!csharp
+
+string[] ShoppingList =
+{
+    "tofu",
+    "riso basmati",
+    "gelato di soia",
+    "cereali integrali",
+    "muesli al cioccolato",
+    "yogurt greco",
+    "latte di soia",
+};
+
+#!csharp
+
+int c = 0;
+"La mia lista della spesa:".Display();
+
+while(c < ShoppingList.Length)
+{
+    Console.WriteLine($"{c+1}) {ShoppingList[c]}");
+    c++;
+}
+
+#!markdown
+
+## I cicli `for` e `foreach`
+
+Il ciclo `for` si differenzia dal ciclo `while` per il fatto che la variabile indice è gestita automaticamente.
+
+Anche in questo caso possiamo utilizzare l'indice per accedere agli elementi di una collezione.
+
+#!csharp
+
+"La mia lista della spesa:".Display();
+
+for(int i = 0; i < ShoppingList.Length; i++)
+{
+    Console.WriteLine($"{i+1}) {ShoppingList[i]}");
+}
+
+#!csharp
+
+"La mia lista della spesa:".Display();
+
+foreach (int i in Enumerable.Range(0, ShoppingList.Length))
+{
+    Console.WriteLine($"{i+1}) {ShoppingList[i]}");
+}
+
+#!markdown
+
+A differenza di molti altri linguaggi di programmazione, C# ci permette di iterare sugli elementi di una collezione direttamente con `foreach`.
+
+#!csharp
+
+"La mia lista della spesa:".Display();
+
+foreach(string i in ShoppingList)
+{
+    Console.WriteLine($"- {i}");
+}
+
+#!markdown
+
+I notebook su Visual Studio Code permettono di mostrare l'index di ogni valore di un array automaticamente.
+
+#!csharp
+
+"La mia lista della spesa:".Display();
+
+ShoppingList.Display();
+
+#!markdown
+
+## `break` e `continue`
+
+Utilizzando lo statement `break` possiamo interrompere l'interruzione di un ciclo.
+
+#!csharp
+
+"La mia lista della spesa:".Display();
+
+foreach (var i in ShoppingList)
+{
+    if (i.Contains("soia")) break;
+    Console.WriteLine($"- {i}");
+}
+
+#!markdown
+
+Utilizzando invece lo statement `continue` verrà soltanto interrotta l'esecuzione corrente e il codice passerà alla successiva.
+
+#!csharp
+
+"La mia lista della spesa:".Display();
+
+foreach (var i in ShoppingList)
+{
+    if (i.Contains("soia")) continue;
+    Console.WriteLine($"- {i}");
+}
